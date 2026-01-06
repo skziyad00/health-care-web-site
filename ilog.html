@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login page</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+
+    /* ✅ Darker classic linear gradient */
+    background: linear-gradient(
+      to bottom left,
+      #b3b3b3,   /* light grey */
+      #6e6e6e,   /* mid grey */
+      #2a2a2a    /* dark grey */
+    );
+
+    transition: opacity 0.8s ease;
+  }
+
+  .login-container {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 14px;
+    padding: 40px;
+    width: 360px;
+    text-align: center;
+
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1.4s ease;
+    transition: transform 0.6s, opacity 0.6s;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #1f1f1f;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 15px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #777;
+    color: #1f1f1f;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: #555;
+  }
+
+  input:focus {
+    border-color: #444;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+
+    background: linear-gradient(
+      to right,
+      #555,
+      #3b3b3b
+    );
+
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: scale(1.03);
+  }
+
+  .error {
+    margin-top: 15px;
+    color: #9c0000;
+    font-size: 14px;
+    display: none;
+  }
+
+  .page-fade {
+    opacity: 0;
+  }
+</style>
+</head>
+
+<body>
+
+  <audio id="transitionAudio">
+    <source src="transition.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="login-container">
+    <h2>Login</h2>
+
+    <input type="text" id="loginId" placeholder="Enter ID">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button class="btn" onclick="login()">Login</button>
+
+    <div class="error" id="errorMsg">Invalid ID or Password</div>
+
+    <a href="i.html" id="nextPage" style="display:none;"></a>
+  </div>
+
+  <script>
+    const validId = "ziyad";
+    const validPassword = "2011";
+
+    function login() {
+      const id = document.getElementById("loginId").value;
+      const password = document.getElementById("password").value;
+
+      if (id === validId && password === validPassword) {
+        document.querySelector('.login-container').classList.add('fade-out');
+        document.body.classList.add('page-fade');
+
+        document.getElementById("transitionAudio").play();
+
+        setTimeout(() => {
+          document.getElementById("nextPage").click();
+        }, 700);
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

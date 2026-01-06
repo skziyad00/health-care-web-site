@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button section</title>
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      to bottom right,
+      #aba3a3,
+      #6e6e6e,
+      #2a2a2a
+    );
+    font-family: Arial, sans-serif;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  h3 {
+    color: #3b3636fb;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* normal buttons */
+  button {
+    width: 180px;
+    height: 40px;
+    background-color: rgba(194, 194, 184, 0.2);
+    border: 2px double rgba(30, 29, 29, 0.9);
+    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.5);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #555;
+    color: rgb(176, 168, 168);
+  }
+
+  /* 🔴 EXIT button (different type) */
+  .exit-btn {
+    background-color: rgba(69, 58, 58, 0.9);
+    border: 2px solid #2b2828;
+    color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+  }
+
+  .exit-btn:hover {
+    background-color: #8a8585;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="section">
+  <h3>Health Topics</h3>
+
+ <div class="button-container">
+ <a href="i2.html" target="contentFrame"><button>Home</button></a>
+  <a href="iw.html" target="contentFrame"><button>Water</button></a>
+  <a href="is.html" target="contentFrame"><button>Sleep</button></a>
+  <a href="iv.html" target="contentFrame"><button>Vitamins</button></a>
+  <a href="ic.html" target="contentFrame"><button>Calcium</button></a>
+  <a href="im.html" target="contentFrame"><button>Minerals</button></a>
+  <a href="ip.html" target="contentFrame"><button>Protein</button></a>
+  <a href="ic.html" target="contentFrame"><button>Calories</button></a>
+  <a href="ind.html" target="contentFrame"><button>Nutrition & Diet</button></a>
+
+  <a href="if.html" target="_top">
+    <button class="exit-btn">Exit</button>
+  </a>
+
+</div>
+
+
+
+
+</body>
+</html>
